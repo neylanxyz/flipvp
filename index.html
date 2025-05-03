@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FliPvP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/flippvp_logo.png" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="aaa"><img src="assets/flippvp_logo.png" width="200px"></div>
+    <!--
+    <div class="menu">
+      <button class="nav-btn active">play</button>
+      <button class="nav-btn">about</button>
+    </div>
+    -->
+    <div class="wallet-info">
+      <button id="connectButton" class="wallet-connect">Connect Wallet</button>
+    </div>
+  </nav>
+
+  <main class="game-container">
+    <button class="how-it-works-btn" onclick="window.location.href='howitworks.html'">
+      How it Works
+      <i class="fas fa-question-circle"></i>
+    </button>
+    <div class="button-row" style="margin-top: -5px; margin-bottom: 10px;">
+      <button id="leaveQueue" class="normal-button" onclick="leaveQueue();" style="display: none;">Leave Queue</button>
+      <button id="claimRefund" class="normal-button" onclick="claimRefund();" style="display: none;">Claim Refund</button>
+    </div>
+    <div class="match-box">
+      <div class="player player-left">
+        <div class="status-text" id="statusLeft"></div>
+        <div class="player-icon"></div>
+      </div>
+
+      <div class="coin-container">
+        <h2 id="gameResult"></h1>
+        <!--<img id="coinImage" src="assets/question.png" alt="coin" class="coin-img">-->
+      </div>
+
+      <div class="player player-right">
+        <div class="status-text" id="statusRight"></div>
+        <div class="player-icon"></div>
+      </div>
+    </div>
+
+    <div class="button-row">
+      <button id="joinHeads" onclick="join('heads')">Queue Heads</button>
+      <button id="actionBtn" onclick="placeBet()" style="display: none;">Place Bet</button>
+      <button id="joinTails" onclick="join('tails')">Queue Tails</button>
+    </div>
+  </main>
+
+  <div id="popup">
+    <div id="popup-content"></div>
+  </div>
+
+  <div id="notification-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
