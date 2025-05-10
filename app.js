@@ -1,4 +1,4 @@
-const CONTRACT_ADDRESS = '0x6d86DFEF6431D4d54636a72DaCC1c1df15eA1E44'; // ✅ Replace with your actual contract address
+const CONTRACT_ADDRESS = '0x6d86DFEF6431D4d54636a72DaCC1c1df15eA1E44';
 const ABI = [
 	{
 		"inputs": [],
@@ -505,8 +505,8 @@ async function connectWallet() {
     
     initContract();
   } else {
-    //alert("MetaMask not found. Please install it.");
-	//showNotification("❗ MetaMask not found. Please instal it.")
+    // alert("MetaMask not found. Please install it.");
+    showNotification("❗ MetaMask not found. Please instal it.");
   }
 }
 
@@ -544,13 +544,12 @@ async function init() {
     contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
 
     currentAccount = await signer.getAddress();
-    // walletDisplay.innerText = currentAccount.slice(0, 6) + "..." + currentAccount.slice(-3);
-	connectButton.innerText = shortenAddress(currentAccount);
+    connectButton.innerText = shortenAddress(currentAccount);
     
     console.log("Connected:", currentAccount);
     checkStatus();
   } else {
-    //showNotification("❗ MetaMask not found. Please instal it.")
+    showNotification("❗ MetaMask not found. Please instal it.")
   }
 }
 
@@ -705,15 +704,6 @@ async function checkStatus() {
 		gameResult.content = "Tails Won! The winner is "+game.winner;
 	}
 
-	//lastGameId = -1;
-	
-	/*
-    if (game.result !== 2) {
-      const result = game.result === 0 ? "heads" : "tails";
-      coinImage.src = `assets/${result}.png`;
-    } else {
-      coinImage.src = `assets/question.png`;
-    }*/
   } catch (err) {
     console.error("Status error:", err);
   }
@@ -772,10 +762,8 @@ function showRefundButton() {
 function hideRefundButton() {
 	claimRefundButton.style.display = "none";
 }
-//showPopup("MATCH FOUND")
 
 setInterval(checkStatus, 5000);
-
 
 // Trigger connection on load
 window.addEventListener("load", init);
